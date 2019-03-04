@@ -1,5 +1,7 @@
 package rocks.zipcode.assessment2.fundamentals;
 
+import java.util.regex.Pattern;
+
 /**
  * @author leon on 28/11/2018.
  */
@@ -10,7 +12,12 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by left-padding
      */
     public static String padLeft(String stringToBePadded, int amountOfPadding) {
-        return null;
+        String result = "";
+        for (int i = 0; i <amountOfPadding - stringToBePadded.length(); i++){
+            result += " ";
+        }
+        result += stringToBePadded;
+        return result;
     }
 
     /**
@@ -19,7 +26,12 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by right-padding
      */
     public static String padRight(String stringToBePadded, int amountOfPadding) {
-        return null;
+        String result = "";
+        result += stringToBePadded;
+        for (int i = 0; i < amountOfPadding - stringToBePadded.length(); i++){
+            result += " ";
+        }
+        return result;
     }
 
     /**
@@ -28,7 +40,12 @@ public class StringUtils {
      * @return the string repeated and concatenated `n` times
      */
     public static String repeatString(String stringToBeRepeated, int numberOfTimeToRepeat) {
-        return null;
+        String result = "";
+        for (int i = 0; i < numberOfTimeToRepeat; i++){
+            result += stringToBeRepeated;
+
+        }
+        return result;
     }
 
     /**
@@ -36,7 +53,15 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        return null;
+        char[] charArray = string.toCharArray();
+        for (int i = 0; i < charArray.length; i++){
+            Character c = charArray[i];
+            if (c == c.toUpperCase(c) && c == c.toLowerCase(c)){
+                break;
+            }
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -44,7 +69,8 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        return null;
+        if (!Pattern.matches("[a-zA-Z]+", string) && string.length() > 2){}
+        return true;
     }
 
     /**
