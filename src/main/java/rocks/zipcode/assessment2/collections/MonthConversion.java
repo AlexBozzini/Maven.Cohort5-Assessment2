@@ -31,11 +31,13 @@ public class MonthConversion {
      * @return - the ordinal of the month in the year
      */
     public int getNumber(String monthName) {
-        for (Integer key : monthConversion.keySet()){
-            Set<Integer> listKeys = monthConversion.keySet();
-
-            if (listKeys.contains(monthName)){
-                return key;
+        if (isValidMonth(monthName)) {
+            for (Integer key : monthConversion.keySet()) {
+                List<String> listKeys = new ArrayList<>();
+                listKeys.add(monthConversion.get(key));
+                if (listKeys.contains(monthName)) {
+                    return key;
+                }
             }
         }
         return 0;
