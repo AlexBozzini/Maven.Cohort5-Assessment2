@@ -1,8 +1,6 @@
 package rocks.zipcode.assessment2.collections;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 /**
  * Use a map to keep track of inventory in a store
@@ -20,7 +18,7 @@ public class Inventory {
      * nullary constructor initializes a new list
      */
     public Inventory() {
-        this.strings = null;
+        this.strings = new ArrayList<>();
     }
 
     /**
