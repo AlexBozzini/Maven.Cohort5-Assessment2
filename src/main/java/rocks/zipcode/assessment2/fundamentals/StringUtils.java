@@ -53,12 +53,7 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        char[] charArray = string.toCharArray();
-        for (int i = 0; i < charArray.length; i++){
-            Character c = charArray[i];
-            if (c == c.toUpperCase(c) && c == c.toLowerCase(c)){
-                break;
-            }
+        if (string.matches("[a-zA-Z]+")){
             return true;
         }
         return false;
@@ -69,8 +64,10 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        if (!Pattern.matches("[a-zA-Z]+", string) && string.length() > 2){}
-        return true;
+        if (string.matches("[0-9]+")){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -78,6 +75,10 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        return null;
+        String splChrs = "!*(-/@#%&_";
+        if (string.matches("[" + splChrs + "]+")){
+            return true;
+        }
+        return false;
     }
 }
