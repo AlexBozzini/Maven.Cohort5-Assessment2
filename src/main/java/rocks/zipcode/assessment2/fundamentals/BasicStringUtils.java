@@ -1,5 +1,8 @@
 package rocks.zipcode.assessment2.fundamentals;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class BasicStringUtils {
     /**
      * @param string1 - Base string to be added to
@@ -40,19 +43,19 @@ public class BasicStringUtils {
      * @return `string` with `charactersToRemove` removed
      */
     public static String removeCharacters(String string, String charactersToRemove) {
-        String newString = "";
-        char[] charArray = string.toCharArray();
-        char[] removeArray = charactersToRemove.toCharArray();
-        for (int i = 0; i < removeArray.length; i++){
-            for (int j = 0; j < charArray.length; j++){
-                if (removeArray[i] == charArray[j]){
-                   continue;
-                } else {
-                    newString += charArray[j];
-                }
-            }
-            }
-        return newString;
+        String result = "";
+        char[] stringToChars = string.toCharArray();
+        char[] charsToRemove = charactersToRemove.toCharArray();
+        List<Character> listOfCharsToRemove = new ArrayList<>();
+        for (int i = 0; i < charsToRemove.length; i++){
+            listOfCharsToRemove.add(charsToRemove[i]);
+        }
+        for (int i = 0; i < stringToChars.length; i++){
+              if (!listOfCharsToRemove.contains(stringToChars[i])){
+                  result += stringToChars[i];
+              }
+        }
+        return result;
     }
 
     /**
@@ -61,6 +64,7 @@ public class BasicStringUtils {
      * @return reverse of `string` with `charactersToRemove` removed
      */
     public static String removeCharactersThenReverse(String string, String charactersToRemove) {
-        return null;
+        String removedCharacters = removeCharacters(string, charactersToRemove);
+        return reverse(removedCharacters);
     }
 }
