@@ -1,6 +1,8 @@
 package rocks.zipcode.assessment2.fundamentals;
 
+import java.util.Arrays;
 import java.util.regex.Pattern;
+import java.util.stream.Stream;
 
 /**
  * @author leon on 28/11/2018.
@@ -53,10 +55,12 @@ public class StringUtils {
      * @return - true if string only contains alpha characters
      */
     public static Boolean isAlphaString(String string) {
-        if (string.matches("[a-zA-Z]+")){
-            return true;
+        for (int i = 0; i < string.length(); i++) {
+            if(!Character.isAlphabetic(string.charAt(i)) && string.charAt(i) != ' ') {
+                return false;
+            }
         }
-        return false;
+        return true;
     }
 
     /**
@@ -64,10 +68,12 @@ public class StringUtils {
      * @return - true if string only contains numeric characters
      */
     public static Boolean isNumericString(String string) {
-        if (string.matches("[0-9]+")){
-            return true;
+        for (int i = 0; i < string.length(); i++) {
+            if(!Character.isDigit(string.charAt(i))) {
+                return false;
+            }
         }
-        return false;
+        return true;
     }
 
     /**
@@ -75,10 +81,11 @@ public class StringUtils {
      * @return - true if string only contains special characters
      */
     public static Boolean isSpecialCharacterString(String string) {
-        String splChrs = "!*(-/@#%&_";
-        if (string.matches("[" + splChrs + "]+")){
-            return true;
+        for (int i = 0; i < string.length(); i++) {
+            if(Character.isDigit(string.charAt(i)) || Character.isAlphabetic(string.charAt(i))) {
+                return false;
+            }
         }
-        return false;
+        return true;
     }
 }

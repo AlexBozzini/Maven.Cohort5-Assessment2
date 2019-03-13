@@ -30,7 +30,7 @@ public class MonthConversion {
      * @param monthName - name of month
      * @return - the ordinal of the month in the year
      */
-    public int getNumber(String monthName) {
+    public Integer getNumber(String monthName) {
         if (isValidMonth(monthName)) {
             for (Integer key : monthConversion.keySet()) {
                 List<String> listKeys = new ArrayList<>();
@@ -40,7 +40,7 @@ public class MonthConversion {
                 }
             }
         }
-        return 0;
+        return null;
     }
 
     /**
